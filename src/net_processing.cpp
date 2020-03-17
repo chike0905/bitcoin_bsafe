@@ -2144,10 +2144,13 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 
         LOCK(cs_main);
+        /* TMP:bsafe seed modification
+         * TODO: -asseed option
         if (IsInitialBlockDownload() && !pfrom->fWhitelisted) {
             LogPrint(BCLog::NET, "Ignoring getheaders from peer=%d because node is in initial block download\n", pfrom->GetId());
             return true;
         }
+        */
 
         CNodeState *nodestate = State(pfrom->GetId());
         const CBlockIndex* pindex = nullptr;
