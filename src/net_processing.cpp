@@ -2145,8 +2145,8 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
 
         LOCK(cs_main);
         if (IsInitialBlockDownload() && !pfrom->fWhitelisted) {
-            LogPrint(BCLog::NET, IsInitialBlockDownload());
-            LogPrint(BCLog::NET, pfrom->fWhitelisted);
+            LogPrint(BCLog::NET, "IsinitialBlockDownload: %s\n" ,IsInitialBlockDownload());
+            LogPrint(BCLog::NET, "WhiteListed: %s\n", pfrom->fWhitelisted);
             LogPrint(BCLog::NET, "Ignoring getheaders from peer=%d because node is in initial block download\n", pfrom->GetId());
             return true;
         }
