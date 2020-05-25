@@ -1368,6 +1368,7 @@ void CConnman::ThreadSocketHandler()
                     if (!pnode->ReceiveMsgBytes(pchBuf, nBytes, notify))
                         pnode->CloseSocketDisconnect();
                     RecordBytesRecv(nBytes);
+                    LogPrint(BCLog::NET, "socket recieved: %s\n", nBytes);
                     if (notify) {
                         size_t nSizeAdded = 0;
                         auto it(pnode->vRecvMsg.begin());
